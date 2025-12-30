@@ -14,25 +14,48 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
+    padding:10px;
+    box-sizing:border-box;
 }
 .terminal{
     border:2px solid #00ff99;
-    padding:25px;
-    width:90%;
-    max-width:520px;
+    padding:20px;
+    width:100%;
+    max-width:480px;
     background:rgba(0,0,0,0.9);
-    box-shadow:0 0 30px #00ff9955;
+    box-shadow:0 0 25px #00ff9955;
+    box-sizing:border-box;
 }
-h1{text-align:center;margin-bottom:5px;color:#00ff99;}
-.user{text-align:center;font-size:15px;margin-bottom:10px;color:#00ff99;}
-.loading{text-align:center;font-size:14px;margin-bottom:15px;color:#00ff99;}
-.hint{font-size:14px;line-height:1.6;color:#00ff99;}
+h1{
+    text-align:center;
+    margin-bottom:10px;
+    font-size:1.5em;
+    color:#00ff99;
+}
+.user{
+    text-align:center;
+    font-size:1em;
+    margin-bottom:10px;
+    color:#00ff99;
+}
+.loading{
+    text-align:center;
+    font-size:0.9em;
+    margin-bottom:12px;
+    color:#00ff99;
+}
+.hint{
+    font-size:0.9em;
+    line-height:1.5;
+    color:#00ff99;
+    margin-bottom:10px;
+}
 .verse{
-    margin:15px 0;
+    margin:10px 0;
     padding:10px;
     border:1px dashed #00ff99;
     text-align:center;
-    font-size:14px;
+    font-size:0.9em;
     color:#00ff99;
 }
 input{
@@ -41,10 +64,12 @@ input{
     background:#000;
     border:1px solid #00ff99;
     color:#00ff99;
-    font-size:18px;
+    font-size:1.2em;
     text-align:center;
     letter-spacing:6px;
     direction:ltr;
+    margin-top:5px;
+    box-sizing:border-box;
 }
 button{
     width:100%;
@@ -53,13 +78,25 @@ button{
     background:#00ff99;
     color:#000;
     border:none;
-    font-size:16px;
+    font-size:1em;
     font-weight:bold;
     cursor:pointer;
+    box-sizing:border-box;
 }
-.result{text-align:center;margin-top:15px;}
+.result{
+    text-align:center;
+    margin-top:15px;
+    font-size:1em;
+}
 .success{color:#00ff00;}
 .error{color:#ff4444;}
+/* התאמות למובייל */
+@media (max-width:400px){
+    h1{font-size:1.3em;}
+    .user, .loading, .hint, .verse{font-size:0.8em;}
+    input{font-size:1em; letter-spacing:4px;}
+    button{font-size:0.9em; padding:10px;}
+}
 </style>
 </head>
 
@@ -107,7 +144,7 @@ setInterval(()=>{loadingEl.textContent=loading[i++%loading.length]},1200);
 
 function check(){
     const r=document.getElementById("result");
-    if(document.getElementById("code").value==="214"){
+    if(document.getElementById("code").value==="213"){
         ok.play();
         r.innerHTML="✔ אימות הושלם";
         r.className="result success";
@@ -132,8 +169,3 @@ function playVerse() {
 </script>
 </body>
 </html>
-אם אתה שומע אותי — האימות התחיל.
-יד. ראש. וקוד.
-שלוש שכבות, פעולה אחת ביום,
-ומספר האותיות במילה שמופיעה בפסוק.
-הסדר פותח את השער.״
